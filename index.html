@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <title>Urinálises</title>
+  <link rel="icon" href="imgs/bio-logo.png">
+</head>
+<body>
+
+  <div class="container">
+    <section class="cabecalho">
+      <h2>Resultados para o laudo de <br><span class="maior">URINA</span></h2>
+    </section>
+
+    <form id="form" class="form">
+      <div class="cardinferior paciente-card">
+        <label for="n">Paciente Nº</label>
+        <div class="linha-paciente">
+        <input
+        type="text" required
+        id="n"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        maxlength="18"
+        autocomplete="off"
+        oninput="this.value=this.value.replace(/\D/g,'')"
+        style="width: 200px;"
+        placeholder="Nº..."
+        />
+        <img src="../imgs/bio-logo.png" alt="Logo" class="logopaciente">
+        </div>
+      </div>
+      <div class="linha-divisoria">CARACTERÍSTICAS GERAIS</div>
+      <div class="cardinferior">
+        <label for="volume">Volume</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="volume"
+            list="lista-volume"
+            maxlength="10"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            autocomplete="off"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <div class="uni-box">
+              <div class="uni-valor">ml</div>
+            </div>
+            <button type="button" class="botao-x" id="botao-volume" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-volume"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="cor">Cor</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="cor"
+            list="lista-cor"
+            autocomplete="off"
+            maxlength="40"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-cor" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-cor"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="aspecto">Aspecto</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="aspecto"
+            list="lista-aspecto"
+            autocomplete="off"
+            maxlength="40"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-aspecto" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-aspecto"></datalist>
+      </div>
+      <div class="linha-divisoria">ELEMENTOS ANORMAIS</div>
+      <div class="cardinferior">
+        <label for="uro">Urobilinogênio</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="uro"
+            list="lista-uro"
+            autocomplete="off"
+            maxlength="40"
+            value="AUSENTE"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-uro" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-uro"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="glicose">Glicose</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="glicose"
+            list="lista-glicose"
+            autocomplete="off"
+            maxlength="40"
+            value="AUSENTE"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-glicose" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-glicose"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="cetona">C. Cetônicos</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="cetona"
+            list="lista-cetona"
+            autocomplete="off"
+            maxlength="40"
+            value="AUSENTES"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-cetona" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-cetona"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="bilirrubina">Bilirrubina</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="bilirrubina"
+            list="lista-bilirrubina"
+            autocomplete="off"
+            maxlength="40"
+            value="AUSENTE"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-bilirrubina" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-bilirrubina"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="proteina">Proteína</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="proteina"
+            list="lista-proteina"
+            autocomplete="off"
+            maxlength="40"
+            value="AUSENTE"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-proteina" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-proteina"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="nitrito">Nitrito</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="nitrito"
+            list="lista-nitrito"
+            autocomplete="off"
+            maxlength="40"
+            value="NEGATIVO"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-nitrito" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-nitrito"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="ph">pH</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="ph"
+            list="lista-ph"
+            autocomplete="off"
+            maxlength="40"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-ph" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-ph"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="hemoglobina">Sangue/Hemoglobina</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="hemoglobina"
+            list="lista-hemoglobina"
+            autocomplete="off"
+            maxlength="40"
+            value="AUSENTE"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-hemoglobina" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-hemoglobina"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="densidade">Densidade</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="densidade"
+            list="lista-densidade"
+            autocomplete="off"
+            maxlength="40"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-densidade" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-densidade"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="leucocitos">Leucócitos</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="leucocitos"
+            list="lista-leucocitos"
+            autocomplete="off"
+            maxlength="40"
+            value="AUSENTES"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-leucocitos" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-leucocitos"></datalist>
+      </div>
+      <div class="linha-divisoria">SEDIMENTOSCOPIA</div>
+      <div class="cardinferior">
+        <label for="hemacias">Hemácias</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="hemacias"
+            list="lista-hemacias"
+            autocomplete="off"
+            value="AUSENTES"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-hemacias" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-hemacias"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="cilindros">Cilindros</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="cilindros"
+            list="lista-cilindros"
+            autocomplete="off"
+            value="AUSENTES"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-cilindros" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-cilindros"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="epiteliais">Células Epiteliais</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="epiteliais"
+            list="lista-epiteliais"
+            autocomplete="off"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-epiteliais" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-epiteliais"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="piocitos">Piócitos</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="piocitos"
+            list="lista-piocitos"
+            autocomplete="off"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-piocitos" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-piocitos"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="flora">Flora Bacteriana</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="flora"
+            list="lista-flora"
+            autocomplete="off"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-flora" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-flora"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="cristais">Cristais</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="cristais"
+            list="lista-cristais"
+            autocomplete="off"
+            value="AUSENTES"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-cristais" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-cristais"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="granulacoes">Granulações</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text" required
+            id="granulacoes"
+            list="lista-granulacoes"
+            autocomplete="off"
+            value="AUSENTES"
+            placeholder="Escolha ou digite..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-granulacoes" title="Deletar da lista">X</button>
+          </div>
+        <datalist id="lista-granulacoes"></datalist>
+      </div>
+      <div class="cardinferior">
+        <label for="obs1">Obs.</label>
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text"
+            id="obs1"
+            list="lista-obs"
+            autocomplete="off"
+            placeholder="1-Escolha ou digite uma obs..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-obs1" title="Deletar da lista">X</button>
+          </div>
+      </div>
+      <div class="cardinferior">
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text"
+            id="obs2"
+            list="lista-obs"
+            autocomplete="off"
+            placeholder="2-Escolha ou digite uma obs..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-obs2" title="Deletar da lista">X</button>
+          </div>
+      </div>
+      <div class="cardinferior">
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text"
+            id="obs3"
+            list="lista-obs"
+            autocomplete="off"
+            placeholder="3-Escolha ou digite uma obs..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-obs3" title="Deletar da lista">X</button>
+          </div>
+      </div>
+      <div class="cardinferior">
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text"
+            id="obs4"
+            list="lista-obs"
+            autocomplete="off"
+            placeholder="4-Escolha ou digite uma obs..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-obs4" title="Deletar da lista">X</button>
+          </div>
+      </div>
+      <div class="cardinferior">
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text"
+            id="obs5"
+            list="lista-obs"
+            autocomplete="off"
+            placeholder="5-Escolha ou digite uma obs..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-obs5" title="Deletar da lista">X</button>
+          </div>
+      </div>
+      <div class="cardinferior">
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text"
+            id="obs6"
+            list="lista-obs"
+            autocomplete="off"
+            placeholder="6-Escolha ou digite uma obs..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-obs6" title="Deletar da lista">X</button>
+          </div>
+      </div>
+      <div class="cardinferior">
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text"
+            id="obs7"
+            list="lista-obs"
+            autocomplete="off"
+            placeholder="7-Escolha ou digite uma obs..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-obs7" title="Deletar da lista">X</button>
+          </div>
+      </div>
+      <div class="cardinferior">
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text"
+            id="obs8"
+            list="lista-obs"
+            autocomplete="off"
+            placeholder="8-Escolha ou digite uma obs..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-obs8" title="Deletar da lista">X</button>
+          </div>
+      </div>
+      <div class="cardinferior">
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text"
+            id="obs9"
+            list="lista-obs"
+            autocomplete="off"
+            placeholder="9-Escolha ou digite uma obs..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-obs9" title="Deletar da lista">X</button>
+          </div>
+      </div>
+      <div class="cardinferior">
+          <div class="input-box">
+            <div class="input-seta">
+            <input
+            type="text"
+            id="obs10"
+            list="lista-obs"
+            autocomplete="off"
+            placeholder="10-Escolha ou digite uma obs..."
+            />
+            <span class="seta">▼</span>
+            </div>
+            <button type="button" class="botao-x" id="botao-obs10" title="Deletar da lista">X</button>
+          </div>
+          <datalist id="lista-obs"></datalist>
+      </div>
+    </form>
+  </div>
+
+  <button type="submit" form="form" class="btn" title="Enviar via WhatsApp" disabled><img src="imgs/what-logo.png" alt="WhatsApp" class="logobtn">ENVIAR</button>
+  
+  <div class="botoes-seta">
+    <button type="button" class="btn-seta" title="Rolagem para cima" id="seta-cima"><img src="imgs/seta-cima.png" class="img-seta"></button>
+    <button type="button" class="btn-seta" title="Rolagem para baixo" id="seta-baixo"><img src="imgs/seta-baixo.png" class="img-seta"></button>
+  </div>
+
+  <footer class="rodape">
+     <div class="texto-rodape">
+      © 2026/<span id="ano"></span> - WhatsApp: (97) 9 8455-6266 / Bioanálises
+    </div>
+    <div class="logos-rodape">
+      <img src="imgs/bioanalises-logo.png" class="logo-footer"> - 
+      <img src="imgs/dbdiagnosticos-logo.png" class="logo-footer">
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

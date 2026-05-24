@@ -1,0 +1,335 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", monospace;
+}
+body{
+  background: linear-gradient(120deg, #5af4ff 0%, #00ccff 50%, #00ffd5 100%);
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 1px;
+}
+.container{
+  background-color: #ffffffd8;
+  border-radius: 14px;
+  margin: 14px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  height: 775px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.cabecalho{
+  background: linear-gradient(120deg, #06b2ddda 0%, #0026ff 100%);
+  padding: 5px;
+  color: #FFF;
+  text-shadow: 1px 1px 0 #00000067;
+  position: relative;
+  text-align: center;
+  font-size: 15px;
+}
+.maior{
+  font-size: 40px;
+  font-weight: bold;
+}
+.linha-paciente{
+  display: flex;
+  align-items: center;
+}
+.paciente-card{
+  position: relative;
+  top: -8px;
+}
+.logopaciente{
+  width: 60px;
+  height: 75px;
+  position: absolute;
+  left: 210px;
+  top: 1%;
+  opacity: 0.8;
+}
+.linha-divisoria{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #0026ff;
+  font-weight: bold;
+  margin: 15px 0;
+  opacity: 0.7;
+}
+.linha-divisoria::before,
+.linha-divisoria::after{
+  content: "";
+  flex: 1;
+  height: 2px;
+}
+.linha-divisoria::before{
+  margin-right: 10px;
+  background: linear-gradient(to right, transparent, #0026ff);
+}
+.linha-divisoria::after{
+  margin-left: 10px;
+  background: linear-gradient(to left, transparent, #0026ff);
+}
+.form{
+  padding: 18px;
+  flex: 1;
+  overflow-y: auto;
+}
+.form::-webkit-scrollbar{
+  width: 10px;
+}
+.form::-webkit-scrollbar-track{
+  background: transparent;
+}
+.form::-webkit-scrollbar-thumb{
+  background: #0026ff38;
+  border-radius: 0 0 0 0;
+}
+.form::-webkit-scrollbar-thumb:hover{
+  background: #0026ff86;
+}
+.cardinferior{
+  margin-bottom: -5px;
+  padding-bottom: 10px;
+  position: relative;
+}
+.cardinferior > label{
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 550;
+  color: #00ccff;
+  text-shadow: 1px 1px 0 #00000067;
+}
+.cardinferior input{
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #0026ff;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  font-weight: bold;
+  color: #00aa22;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+.cardinferior input::placeholder{
+  text-transform: none;
+  font-weight: normal;
+}
+.cardinferior input:focus{
+  background-color: #eaf2ff;
+  outline: none;
+}
+.cardinferior input:not(.auto-field):not(:placeholder-shown){
+  border-color: #00aa22;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0) inset !important
+}
+.btn{
+  background-color: #ffffff;
+  color: #32D951;
+  width: 130px;
+  border-radius: 14px;
+  padding: 3px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  
+  position: fixed;
+  bottom: 45px;
+  left: 20px;
+  z-index: 9999;
+  border: 2px solid #32D951;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  left: max(14px, calc((100vw - 600px) / 2));
+}
+.logobtn{
+  width: 40px;
+  height: 40px;
+  filter: 
+    drop-shadow(0 0 1px #32D951)
+    drop-shadow(0 0 1px #32D951);
+}
+.btn:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(100%);
+}
+.btn:hover{
+  background-color: #32D951;
+  color: #ffffff;
+}
+.btn:hover .logobtn{
+  filter:
+    brightness(0)
+    invert(1)
+    drop-shadow(0 0 1px #ffffff)
+    drop-shadow(0 0 1px #ffffff);
+  border: none;
+}
+.btn:active{
+  background-color: #1fa53b;
+  border: none;
+}
+.botoes-seta{
+  position: fixed;
+  bottom: 45px;
+  right: max(14px, calc((100vw - 600px) / 2));
+  display: flex;
+  gap: 10px;
+  z-index: 9999;
+}
+.btn-seta{
+  width: 50px;
+  height: 50px;
+  border: 2px solid #0026ff11;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+.img-seta{
+  width: 40px;
+  height: 40px;
+}
+.btn-seta:hover{
+  background: #00c1f1;
+  border: none;
+}
+.btn-seta:active{
+  background: #0081a1;
+  border: none;
+}
+.input-box{
+  display: flex;
+  align-items: flex-start;
+  gap: 3px;
+}
+.botao-x{
+  width: 33px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  top: 1px;
+  border: 1px solid rgb(255, 0, 0);
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
+}
+.botao-x:hover{
+  background: #ff0000;
+  color: rgb(255, 255, 255);
+}
+.uni-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+.uni-valor{
+  height: 38px;
+  min-width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #00ccff;
+  text-shadow: 1px 1px 0 #00000067;
+}
+.input-seta{
+  position: relative;
+  flex: 1;
+}
+.seta{
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  pointer-events: none;
+  font-size: 15px;
+  color: #0026ff;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+.input-seta:has(input:not(:placeholder-shown)) .seta{
+  color: #00aa22;
+}
+.input-seta:focus-within .seta {
+  transform: translateY(-50%) rotate(180deg);
+}
+.rodape{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 3px;
+  color: #ffffff;
+  z-index: 9999;
+  font-size: 12px;
+  
+  background: #0026ff7a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.logo-footer{
+  width: 200px;
+  object-fit: contain;
+  margin-bottom: -1px;
+  display: flex;
+  margin: 0 auto;
+}
+.logos-rodape{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.logo-footer{
+  width: 100px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.btn,
+.btn-seta,
+.botoes-seta,
+.botao-x,
+.seta {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  pointer-events: none;
+}
+input::-webkit-calendar-picker-indicator {
+  display: none !important;
+  opacity: 0;
+}

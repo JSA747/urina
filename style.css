@@ -31,6 +31,12 @@ body{
   flex-direction: column;
 }
 /* Apenas celulares/telas touch pequenas */
+@media (max-height: 800px) and (hover: none) and (pointer: coarse){
+  .container{
+    height: calc(100dvh - 115px);
+  }
+}
+/* Apenas celulares/telas touch pequenas */
 @media (max-height: 700px) and (hover: none) and (pointer: coarse){
   .container{
     height: calc(100dvh - 120px);

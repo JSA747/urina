@@ -25,34 +25,10 @@ body{
   border-radius: 14px;
   width: 100%;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  height: calc(100dvh - 108px);
+  height: calc(100dvh - 120px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-/* Apenas celulares/telas touch pequenas */
-@media (max-height: 1000px) and (hover: none) and (pointer: coarse){
-  .container{
-    height: calc(100dvh - 110px);
-  }
-}
-/* Apenas celulares/telas touch pequenas */
-@media (max-height: 900px) and (hover: none) and (pointer: coarse){
-  .container{
-    height: calc(100dvh - 115px);
-  }
-}
-/* Apenas celulares/telas touch pequenas */
-@media (max-height: 800px) and (hover: none) and (pointer: coarse){
-  .container{
-    height: calc(100dvh - 118px);
-  }
-}
-/* Apenas celulares/telas touch pequenas */
-@media (max-height: 700px) and (hover: none) and (pointer: coarse){
-  .container{
-    height: calc(100dvh - 120px);
-  }
 }
 /* Celulares ainda menores */
 @media (max-height: 600px) and (hover: none) and (pointer: coarse){

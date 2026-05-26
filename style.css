@@ -17,19 +17,23 @@ body{
 .agrupador{
   position: relative;
   width: 100%;
-  max-width: 628px;
+  max-width: 600px;
   margin: 14px;
 }
 .container{
   background-color: #ffffffd8;
   border-radius: 14px;
-  max-width: 600px;
   width: 100%;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  height: 520px;
+  height: calc(100dvh - 108px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+@media (max-height: 600px){
+  .container{
+    height: calc(100dvh - 120px);
+  }
 }
 .cabecalho{
   background: linear-gradient(120deg, #06b2ddda 0%, #0026ff 100%);
@@ -191,7 +195,7 @@ input:-webkit-autofill {
 .botoes-seta{
   position: absolute;
   transform: translateY(5%);
-  right: 0;
+  right: 0px;
   display: flex;
   gap: 10px;
   z-index: 9999;

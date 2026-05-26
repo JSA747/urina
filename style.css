@@ -37,6 +37,12 @@ body{
   }
 }
 /* Apenas celulares/telas touch pequenas */
+@media (max-height: 1000px) and (hover: none) and (pointer: coarse){
+  .container{
+    height: calc(100dvh - 110px);
+  }
+}
+/* Apenas celulares/telas touch pequenas */
 @media (max-height: 800px) and (hover: none) and (pointer: coarse){
   .container{
     height: calc(100dvh - 118px);

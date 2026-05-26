@@ -30,9 +30,16 @@ body{
   display: flex;
   flex-direction: column;
 }
-@media (max-height: 600px){
+/* telas menores */
+@media (max-height: 700px){
   .container{
     height: calc(100dvh - 120px);
+  }
+}
+/* telas MUITO menores */
+@media (max-height: 600px){
+  .container{
+    height: calc(100dvh - 125px);
   }
 }
 .cabecalho{

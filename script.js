@@ -213,7 +213,7 @@ criarLista(
   "piocitos",
   "lista-piocitos",
   "piocitos",
-  ["AUSENTES","RAROS P/C","NUMEROSOS P/C","08 - 10 P/C","05 - 08 P/C","05 - 06 P/C","10 - 14 P/C","08 - 13 P/C","02 - 04 P/C","08 - 12 P/C","08 - 14 P/C","12 - 14 P/C","13 - 16 P/C","12 - 15 P/C","02 - 08 P/C","12 - 13 P/C","02 - 05 P/C","02 - 03 P/C"],
+  ["AUSENTES","RAROS P/C","NUMEROSOS P/C","08 - 10 P/C","05 - 08 P/C","05 - 06 P/C","10 - 14 P/C","08 - 13 P/C","02 - 04 P/C","08 - 12 P/C","08 - 14 P/C","12 - 14 P/C","13 - 16 P/C","12 - 15 P/C","02 - 08 P/C","12 - 13 P/C","02 - 05 P/C","02 - 06 P/C","02 - 03 P/C"],
   "botao-piocitos",
   false
 );

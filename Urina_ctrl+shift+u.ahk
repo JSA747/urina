@@ -1,19 +1,45 @@
 ﻿CoordMode, Mouse, Screen
+ativo := true
 
+Menu, Tray, Icon, C:\Scripts\0_ico\urina.ico
+Menu, Tray, Tip, Urina (ctrl+shift+u) - 🟢
+
+OnMessage(0x404, "TrayClick")
+
+TrayClick(wParam, lParam)
+{
+    global ativo
+
+    if (lParam = 0x202) ; clique esquerdo
+    {
+        ativo := !ativo
+
+        if (ativo)
+        {
+            Menu, Tray, Icon, C:\Scripts\0_ico\urina.ico
+			Menu, Tray, Tip, Urina (ctrl+shift+u) - 🟢
+        }
+        else
+        {
+            Menu, Tray, Icon, C:\Scripts\0_ico\stop.ico
+			Menu, Tray, Tip, Urina (ctrl+shift+u) - 🔴
+        }
+    }
+}
 ^+u::
+if (!ativo)
+    return
 texto := Clipboard
-
-; FORÇA TEXTO PURO
+	; FORÇA TEXTO PURO
 Clipboard := Clipboard
 ClipWait, 1
-
-; MOSTRA O TEXTO COPIADO
-MsgBox, , Texto Copiado:, %texto%
-
-; =========================
-; SEPARA OS VALORES
-; =========================
-
+	; MOSTRA O TEXTO COPIADO E PERGUNTA SE QUER CONTINUAR
+MsgBox, 4, Texto Copiado, %texto%`n`nQUER CONTINUAR?
+IfMsgBox, No
+    return
+	; =========================
+	; SEPARA OS VALORES
+	; =========================
 RegExMatch(texto, "\*?Volume:\*?\s*(.*)", vVolume)
 RegExMatch(texto, "\*?Cor:\*?\s*(.*)", vCor)
 RegExMatch(texto, "\*?Aspecto:\*?\s*(.*)", vAspecto)
@@ -34,11 +60,9 @@ RegExMatch(texto, "\*?Piócitos:\*?\s*(.*)", vPiocitos)
 RegExMatch(texto, "\*?Flora Bacteriana:\*?\s*(.*)", vFlora)
 RegExMatch(texto, "\*?Cristais:\*?\s*(.*)", vCristais)
 RegExMatch(texto, "\*?Granulações:\*?\s*(.*)", vGranulacoes)
-
-; =========================
-; LIMPA CAMPOS
-; =========================
-
+	; =========================
+	; LIMPA CAMPOS
+	; =========================
 vVolume1      := Limpar(vVolume1)
 vCor1         := Limpar(vCor1)
 vAspecto1     := Limpar(vAspecto1)
@@ -59,44 +83,36 @@ vPiocitos1    := Limpar(vPiocitos1)
 vFlora1       := Limpar(vFlora1)
 vCristais1    := Limpar(vCristais1)
 vGranulacoes1 := Limpar(vGranulacoes1)
-
-; REMOVE "ml"
+	; REMOVE "ml"
 vVolume1 := StrReplace(vVolume1, "ml", "")
 vVolume1 := StrReplace(vVolume1, "ML", "")
-
-; =========================
-; MONTA OBSERVAÇÕES
-; =========================
-
+	; =========================
+	; MONTA OBSERVAÇÕES
+	; =========================
 msgObs := ""
-
 Loop, 10
 {
     RegExMatch(texto, A_Index "-Obs\.\:\s*(.*)", obsTemp)
-
     obs := Limpar(obsTemp1)
-
     if (obs != "")
     {
         msgObs .= "|Obs " A_Index ": " obs "`n"
     }
 }
-
-; =========================
-; MSGBOX
-; =========================
-
+	; =========================
+	; MSGBOX
+	; =========================
 msg =
 (
-|-----------------------|
-|CARACTERÍSTICAS GERAIS |
-|-----------------------|
+|-----------------------
+|## CARACTERÍSTICAS GERAIS
+|-----------------------
 |Volume: %vVolume1%
 |Cor: %vCor1%
 |Aspecto: %vAspecto1%
-|-----------------------|
-|ELEMENTOS ANORMAIS     |
-|-----------------------|
+|-----------------------
+|## ELEMENTOS ANORMAIS
+|-----------------------
 |Urobilinogênio: %vUro1%
 |Glicose: %vGli1%
 |C. Cetônicos: %vCetona1%
@@ -107,9 +123,9 @@ msg =
 |Hemoglobina: %vHemoglobina1%
 |Densidade: %vDensidade1%
 |Leucócitos: %vLeucocitos1%
-|-----------------------|
-|SEDIMENTOSCOPIA        |
-|-----------------------|
+|-----------------------
+|## SEDIMENTOSCOPIA
+|-----------------------
 |Hemácias: %vHemacias1%
 |Cilindros: %vCilindros1%
 |Células Epiteliais: %vCelulas1%
@@ -118,58 +134,41 @@ msg =
 |Cristais: %vCristais1%
 |Granulações: %vGranulacoes1%
 )
-
 if (msgObs != "")
 {
-    msg .= "`n|-----------------------|"
-    msg .= "`n|OBSERVAÇÕES            |"
-    msg .= "`n|-----------------------|"
+    msg .= "`n|-----------------------"
+    msg .= "`n|## OBSERVAÇÕES"
+    msg .= "`n|-----------------------"
     msg .= "`n" msgObs
-    msg .= "|-----------------------|"
+    msg .= "|-----------------------"
 }
-
 MsgBox, , Textos Separados:, %msg%
-
-; =========================
-; COLA VOLUME
-; =========================
-
+	; =========================
+	; COLA VOLUME
+	; =========================
 Clipboard := vVolume1
 ClipWait
 Send, ^v
-
 Sleep, 100
-
 Send, {Tab}
-
 Sleep, 100
-
-; =========================
-; COLA ASPECTO
-; =========================
-
+	; =========================
+	; COLA ASPECTO
+	; =========================
 Clipboard := vAspecto1
 ClipWait
 Send, ^v
-
 Sleep, 100
-
 Send, {Tab}
-
 Sleep, 100
-
-; =========================
-; COLA OBSERVAÇÕES
-; =========================
-
+	; =========================
+	; COLA OBSERVAÇÕES
+	; =========================
 primeiraObs := true
-
 Loop, 10
 {
     RegExMatch(texto, A_Index "-Obs\.\:\s*(.*)", obsTemp)
-
     obs := Limpar(obsTemp1)
-
     if (obs != "")
     {
         ; TAB SOMENTE APÓS A PRIMEIRA
@@ -178,39 +177,28 @@ Loop, 10
             Send, {Tab}
             Sleep, 100
         }
-
         Clipboard := obs
         ClipWait
         Send, ^v
-
         Sleep, 100
-
         primeiraObs := false
     }
 }
-
 return
-
-; =========================
-; FUNÇÃO LIMPAR
-; =========================
-
+	; =========================
+	; FUNÇÃO LIMPAR
+	; =========================
 Limpar(txt)
 {
     ; REMOVE QUEBRAS DE LINHA
     txt := RegExReplace(txt, "`r|`n")
-
     ; REMOVE ASTERISCOS
     txt := StrReplace(txt, "*", "")
-
     ; REMOVE PONTOS
     txt := StrReplace(txt, ".", "")
-
     ; REMOVE ESPAÇOS DUPLOS
     txt := RegExReplace(txt, "\s+", " ")
-
     ; REMOVE ESPAÇOS NAS PONTAS
     txt := Trim(txt)
-
     return txt
 }

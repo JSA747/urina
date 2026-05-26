@@ -39,7 +39,7 @@ body{
 /* Celulares ainda menores */
 @media (max-height: 600px) and (hover: none) and (pointer: coarse){
   .container{
-    height: calc(100dvh - 135px);
+    height: calc(100dvh - 125px);
   }
 }
 .cabecalho{

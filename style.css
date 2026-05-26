@@ -30,16 +30,16 @@ body{
   display: flex;
   flex-direction: column;
 }
-/* telas menores */
-@media (max-height: 700px){
+/* Apenas celulares/telas touch pequenas */
+@media (max-height: 700px) and (hover: none) and (pointer: coarse){
   .container{
     height: calc(100dvh - 120px);
   }
 }
-/* telas MUITO menores */
-@media (max-height: 600px){
+/* Celulares ainda menores */
+@media (max-height: 600px) and (hover: none) and (pointer: coarse){
   .container{
-    height: calc(100dvh - 125px);
+    height: calc(100dvh - 135px);
   }
 }
 .cabecalho{
